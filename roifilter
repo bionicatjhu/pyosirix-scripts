@@ -10,7 +10,9 @@ patientID =
 #loop over slices
 rois = vc.roiList(frame)[idx]
 
-for (i = 1:length(rois)){
+for i in range(1,length(rois)):
+
+{
 roitype = rois[i].type
 
 if (roitype = line){remove rois[i]}
