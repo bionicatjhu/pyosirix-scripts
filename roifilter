@@ -1,0 +1,18 @@
+# pyosirix scripts for changing roi_series to exclude linear measurements and exporting over the database\
+
+import osirix
+
+vc = osirix.frontmostViewer()
+
+# loop over patient IDs
+patientID = 
+
+#loop over slices
+rois = vc.roiList(frame)[idx]
+
+for (i = 1:length(rois)){
+roitype = rois[i].type
+
+if (roitype = line){remove rois[i]}
+vc.needsDisplayUpdate()
+}
