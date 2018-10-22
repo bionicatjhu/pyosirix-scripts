@@ -31,9 +31,8 @@ else:
 	# exit()
 
 
-# loop over patient IDs
+# loop over ROIs, slices, patient IDs
 #patientID = 
-#loop over slices
 #rois = vc.roiList(frame)[idx]
 #for i in range(1,length(rois)):
 #{
