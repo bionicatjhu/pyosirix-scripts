@@ -1,3 +1,6 @@
-# if using a local library may need to add path to bashrc
+# just fyi if using a local library for pyosirix may need to add path to bashrc
 export CPLUS_INCLUDE_PATH=/System/Library/Frameworks/Python.framework/Headers
+
+# install homebrew for package manager
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
