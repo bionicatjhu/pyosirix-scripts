@@ -1,42 +1,32 @@
-# change roi_series to exclude linear measurements 
+#HeaderInfo
+#type=ROITool
+#name=NewScriptTemplate
 #version=0.0.1
+#author=matthew
+#EndHeaderInfo
 
-from __future__ import print_function
 import osirix
 import numpy as np
 import matplotlib.pyplot as plt
 
-# get frontmost viewer
+# reference active viewer controller, current frame and current slice
 vc = osirix.frontmostViewer()
+frame = vc.movieIdx
+idx = vc.idx
 
-if vc: 
-
-	# get current dicom info
-	pix = viewerController.curDCM()
-  
-	# get current ROI info
-	roi = viewerController.selectedROIs()[0]
-  
-	# data returned as tuple
-	values = pix.computeROI(roi)
-	roiData, dataLocations = viewerController.getROIvalues(roi)
-	print (values)
-  
-	# plot the data
-	plt.hist(roiData, bins = 50)
-	plt.show()
-	
-else:
-	print ('No viewer open')
-	# exit()
+# create the list from the current frame and slice
+rois = vc.roiList(frame)[idx]
 
 
-# loop over ROIs, slices, patient IDs
-#patientID = 
-#rois = vc.roiList(frame)[idx]
-#for i in range(1,length(rois)):
-#{
-#roitype = rois[i].type
-#if (roitype = line){remove rois[i]}
-#vc.needsDisplayUpdate()
-#}
+# loop through the rois
+for i in range(0,len(rois)):
+	roi = rois[i]
+	roithickness = roi.thickness
+	if roiarea == 0:
+		
+	else: 
+		print(rois)
+#	break
+#print(rois[])
+#print(
+vc.needsDisplayUpdate()
