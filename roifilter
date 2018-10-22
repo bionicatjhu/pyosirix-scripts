@@ -1,20 +1,43 @@
-# pyosirix scripts for changing roi_series to exclude linear measurements and exporting over the database\
+# change roi_series to exclude linear measurements 
+#version=0.0.1
 
+from __future__ import print_function
 import osirix
+import numpy as np
+import matplotlib.pyplot as plt
 
+# get frontmost viewer
 vc = osirix.frontmostViewer()
 
+if vc: 
+
+	# get current dicom info
+	pix = viewerController.curDCM()
+  
+	# get current ROI info
+	roi = viewerController.selectedROIs()[0]
+  
+	# data returned as tuple
+	values = pix.computeROI(roi)
+	roiData, dataLocations = viewerController.getROIvalues(roi)
+	print (values)
+  
+	# plot the data
+	plt.hist(roiData, bins = 50)
+	plt.show()
+	
+else:
+	print ('No viewer open')
+	# exit()
+
+
 # loop over patient IDs
-patientID = 
-
+#patientID = 
 #loop over slices
-rois = vc.roiList(frame)[idx]
-
-for i in range(1,length(rois)):
-
-{
-roitype = rois[i].type
-
-if (roitype = line){remove rois[i]}
-vc.needsDisplayUpdate()
-}
+#rois = vc.roiList(frame)[idx]
+#for i in range(1,length(rois)):
+#{
+#roitype = rois[i].type
+#if (roitype = line){remove rois[i]}
+#vc.needsDisplayUpdate()
+#}
