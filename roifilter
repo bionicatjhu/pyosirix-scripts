@@ -2,7 +2,7 @@
 #type=ROITool
 #name=NewScriptTemplate
 #version=0.0.1
-#author=matthew
+#author=matthewsharrock
 #EndHeaderInfo
 
 import osirix
@@ -17,16 +17,19 @@ idx = vc.idx
 # create the list from the current frame and slice
 rois = vc.roiList(frame)[idx]
 
+rois = list(rois)
 
 # loop through the rois
 for i in range(0,len(rois)):
-	roi = rois[i]
-	roithickness = roi.thickness
+	roiarea = rois[i].area
+	
 	if roiarea == 0:
+		del(rois[i])
 		
-	else: 
-		print(rois)
+	 else: print(len(rois))
 #	break
 #print(rois[])
 #print(
+rois = tuple(rois)
+vc.roiList(frame)[idx] = rois
 vc.needsDisplayUpdate()
