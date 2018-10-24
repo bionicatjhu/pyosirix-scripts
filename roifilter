@@ -46,3 +46,27 @@ data = []
 for roi in rois: 
 	roiData, dataLocations = pix.getROIValues(roi)
 	data = np.r_[data,roiData]
+
+
+import osirix
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+
+# reference active viewer controller, current frame and current slice
+vc = osirix.frontmostViewer()
+
+# reference displayed DCMPix and rois
+pixList = vc.pixList(vc.movieIdx)
+roiList = vc.roiList(vc.movieIdx)
+pix = vc.pixList()
+rois = vc.roiList()
+
+# get rois by name
+ich = vc.roisWithName("ICH1" or "ICH2" or "ICH3")
+rlv = vc.roisWithName("RLV1" or "RLV2" or "RLV3")
+llv = vc.roisWithName("LLV1" or "LLV2" or "LLV3")
+
+
+# create an image
+#mpl.image.imsave("test.png",data)
