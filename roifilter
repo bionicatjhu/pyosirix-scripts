@@ -16,8 +16,15 @@ idx = vc.idx
 
 # create the list from the current frame and slice
 rois = vc.roiList(frame)[idx]
-
 rois = list(rois)
+
+# get rois by name
+ich = roisWithName("ICH1" or "ICH2" or "ICH3")
+rlv = roisWithName("RLV1" or "RLV2" or "RLV3")
+llv = roisWithName("LLV1" or "LLV2" or "LLV3")
+
+
+
 
 # loop through the rois
 for i in range(0,len(rois)):
