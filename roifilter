@@ -33,3 +33,9 @@ for i in range(0,len(rois)):
 rois = tuple(rois)
 vc.roiList(frame)[idx] = rois
 vc.needsDisplayUpdate()
+
+# make a numpy array of data within rois
+data = []
+for roi in rois: 
+	roiData, dataLocations = pix.getROIValues(roi)
+	data = np.r_[data,roiData]
